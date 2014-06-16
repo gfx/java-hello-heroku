@@ -1,7 +1,11 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
 targetCompatibility = JavaVersion.VERSION_1_8
 sourceCompatibility = JavaVersion.VERSION_1_8
+
+mainClassName = 'com.github.gfx.HelloHeroku'
+applicationName = 'hello-heroku-java'
 
 repositories {
     mavenCentral()
@@ -9,5 +13,7 @@ repositories {
 
 dependencies {
     compile 'org.eclipse.jetty:jetty-servlet:+'
-    compile 'javax.servlet:servlet-api:2.5'
+    compile 'javax.servlet:servlet-api:+'
 }
+
+task stage(dependsOn: ['clean'])
